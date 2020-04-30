@@ -1,3 +1,5 @@
+package Entitati;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +24,14 @@ public class DivertismentDinamic extends Divertisment {
         super(divertismentDinamic);
         this.mijloaceDeTransport = new ArrayList<String>(divertismentDinamic.mijloaceDeTransport);
         this.obiectiveDeVizitat = new ArrayList<String>(divertismentDinamic.obiectiveDeVizitat);
+    }
+
+    public List<String> getMijloaceDeTransport() {
+        return mijloaceDeTransport;
+    }
+
+    public List<String> getObiectiveDeVizitat() {
+        return obiectiveDeVizitat;
     }
 
     @Override

@@ -1,4 +1,4 @@
-import java.util.Collection;
+package Entitati;
 
 public abstract class Activitate{
     protected String numeActivitate;

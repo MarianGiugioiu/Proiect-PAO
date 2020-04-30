@@ -1,4 +1,6 @@
-public class DivertismentStatic extends Divertisment{
+package Entitati;
+
+public class DivertismentStatic extends Divertisment {
     private String asteptari;
     private String tip;
 

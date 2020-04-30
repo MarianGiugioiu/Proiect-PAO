@@ -1,7 +1,9 @@
+package Entitati;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Intalnire  extends Activitate{
+public class Intalnire  extends Activitate {
     private int numarMembrii;
     private List<String> membrii;
     private String scopIntalnire;
@@ -11,6 +13,12 @@ public class Intalnire  extends Activitate{
         this.numarMembrii = 0;
         this.membrii = new ArrayList<String>();
         this.scopIntalnire = "";
+    }
+    public Intalnire(String numeActivitate, String locatie, String scopIntalnire, int numarMembrii, ArrayList<String> membrii) {
+        super(numeActivitate, locatie, "intalnire");
+        this.numarMembrii = numarMembrii;
+        this.membrii = new ArrayList<String>(membrii);
+        this.scopIntalnire = scopIntalnire;
     }
 
     public Intalnire(String numeActivitate, String locatie, String scopIntalnire) {
@@ -45,6 +53,10 @@ public class Intalnire  extends Activitate{
 
     public void stergeMembru(String nume) {
         membrii.remove(nume);
+    }
+
+    public List<String> getMembrii() {
+        return membrii;
     }
 
     @Override

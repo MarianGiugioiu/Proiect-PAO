@@ -1,10 +1,11 @@
-import com.sun.javafx.binding.StringFormatter;
+package Entitati;
+
 import javafx.util.Pair;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Sarcina extends Activitate  implements Comparable<Sarcina>{
+public class Sarcina extends Activitate implements Comparable<Sarcina>{
     private List<Pair<String, String> > obiective;
     private int numarObiective;
     private int numarObiectiveRezolvate;
@@ -16,6 +17,20 @@ public class Sarcina extends Activitate  implements Comparable<Sarcina>{
         this.numarObiective = 0;
         this.numarObiectiveRezolvate = 0;
         deadline = new Date();
+    }
+
+    public Sarcina(String numeActivitate, String locatie,
+                   String deadline, int numarObiective, int numarObiectiveRezolvate,
+                   ArrayList<Pair<String, String>> obiective) {
+        super(numeActivitate, locatie, "sarcina");
+        this.obiective = new ArrayList<Pair<String, String>>(obiective);
+        this.numarObiective = numarObiective;
+        this.numarObiectiveRezolvate = numarObiectiveRezolvate;
+        try {
+            this.deadline = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(deadline);
+        } catch (Exception e){
+            System.out.println("Data introdusa nu este corecta");
+        }
     }
 
     public Sarcina(String numeActivitate, String locatie, String deadline) {
@@ -38,12 +53,21 @@ public class Sarcina extends Activitate  implements Comparable<Sarcina>{
         this.deadline = sarcina.deadline;
     }
 
+
     public Date getDeadline() {
         return deadline;
     }
 
     public int getNumarObiective() {
         return numarObiective;
+    }
+
+    public int getNumarObiectiveRezolvate() {
+        return numarObiectiveRezolvate;
+    }
+
+    public List<Pair<String, String>> getObiective() {
+        return obiective;
     }
 
     public void setDeadline(String deadline) {
@@ -88,7 +112,13 @@ public class Sarcina extends Activitate  implements Comparable<Sarcina>{
     @Override
     public String afisareActivitate() {
         StringBuilder stringBuilder = new StringBuilder(super.afisareActivitate());
-        stringBuilder.append(String.format("Deadline: %tD %tR\n",this.deadline,this.deadline));
+        stringBuilder.append("Deadline: ");
+        StringBuilder stringBuilder1 = new StringBuilder(String.format("%tD %tR\n",this.deadline,this.deadline));
+        String string1 = stringBuilder1.substring(0,2);
+        String string2 = stringBuilder1.substring(3,5);
+        stringBuilder1.replace(0,2,string2);
+        stringBuilder1.replace(3,5,string1);
+        stringBuilder.append(stringBuilder1);
         stringBuilder.append(this.afisareObiective());
         return stringBuilder.toString();
     }

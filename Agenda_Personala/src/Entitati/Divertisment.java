@@ -1,3 +1,5 @@
+package Entitati;
+
 public abstract class Divertisment extends Activitate implements Comparable<Divertisment>{
     private int entuziasm;
 

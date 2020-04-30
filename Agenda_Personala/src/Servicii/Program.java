@@ -1,3 +1,8 @@
+package Servicii;
+
+import Entitati.Activitate;
+import Entitati.Planificare;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 //Clasa de serviciu
@@ -5,7 +10,7 @@ public class Program {
     private int numarPlanificari;
     private HashMap<String, Activitate> activitati;
     // In activitati vor fi retinute toate activitatiile care nu sunt de tipul sarcina, deoarece pentru o sarcina
-    // se pot crea mai multe planificari. Asadar pentru sarcini am creat ManagerSarcini
+    // se pot crea mai multe planificari. Asadar pentru sarcini am creat Servicii.ManagerSarcini
     private Set<Planificare> planificari;
 
     public Program() {
@@ -15,7 +20,7 @@ public class Program {
     }
 
     public String afisareProgram() {
-        StringBuilder stringBuilder = new StringBuilder("Program:");
+        StringBuilder stringBuilder = new StringBuilder("Servicii.Program:");
         for (Planificare planificare : planificari) {
             stringBuilder.append(planificare.afisarePlanificare());
             stringBuilder.append("\n");
