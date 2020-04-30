@@ -48,10 +48,12 @@ public class Intalnire  extends Activitate {
     }
 
     public void adaugaMembru(String nume) {
+        this.numarMembrii++;
         this.membrii.add(nume);
     }
 
     public void stergeMembru(String nume) {
+        this.numarMembrii--;
         membrii.remove(nume);
     }
 
