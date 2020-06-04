@@ -432,7 +432,7 @@ public class Server {
         return divertismenteStatice;
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
+    public static void main(String[] args) throws SQLException {
         Server server = new Server();
         Audit audit = Audit.getInstance();
 
