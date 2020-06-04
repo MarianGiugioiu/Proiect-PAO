@@ -125,11 +125,13 @@ public class Program {
         }
 
         k = 0;
-        rezultat.add(initial.get(0));
-        for(int i = 1; i < initial.size();i++) {
-            if (initial.get(i).getInceput().compareTo(initial.get(k).getSfarsit()) >= 0){
-                k = i;
-                rezultat.add(initial.get(i));
+        if(!initial.isEmpty()) {
+            rezultat.add(initial.get(0));
+            for (int i = 1; i < initial.size(); i++) {
+                if (initial.get(i).getInceput().compareTo(initial.get(k).getSfarsit()) >= 0) {
+                    k = i;
+                    rezultat.add(initial.get(i));
+                }
             }
         }
         return rezultat;

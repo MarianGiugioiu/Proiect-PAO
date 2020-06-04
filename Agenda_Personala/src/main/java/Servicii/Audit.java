@@ -23,7 +23,7 @@ public class Audit {
         return instance;
     }
 
-    public static void scrieDate(String numeFunctie, String filePath) {
+    public static void scrieDate(String numeFunctie, String filePath, String threadName) {
         try {
             FileWriter fileWriter = new FileWriter(filePath, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -32,6 +32,8 @@ public class Audit {
             stringBuilder.append(",");
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             stringBuilder.append(dateFormat.format(new Date()));
+            stringBuilder.append(",");
+            stringBuilder.append(threadName);
             printWriter.println(stringBuilder.toString());
             printWriter.flush();
             printWriter.close();

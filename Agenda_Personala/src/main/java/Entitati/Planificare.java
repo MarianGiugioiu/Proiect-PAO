@@ -1,5 +1,7 @@
 package Entitati;
 
+import javafx.util.Pair;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -72,6 +74,14 @@ public class Planificare implements Comparable<Planificare>{
         } catch (Exception e){
             System.out.println("Data introdusa nu este corecta");
         }
+    }
+
+    public Pair<String, String> getRezumat() {
+        String numeActivitate = this.getActivitate().getNumeActivitate();
+        String interval = String.format("%tD %tR - %tD %tR",
+                this.inceput, this.inceput,
+                this.sfarsit, this.sfarsit);
+        return new Pair<String, String>(numeActivitate, interval);
     }
 
     public String afisarePlanificare() {
